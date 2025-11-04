@@ -1,0 +1,97 @@
+{
+  "scan_timestamp": "2025-11-04T13:13:53Z",
+  "project_name": "ai-manus",
+  "scan_phase": "completed",
+  "modules": {
+    "frontend": {
+      "path": "frontend",
+      "type": "vue-typescript",
+      "entry": "frontend/src/main.ts",
+      "package_manager": "npm",
+      "framework": "Vue 3 + TypeScript + Vite",
+      "key_features": ["SSE connections", "VNC viewer", "File management", "Authentication", "Internationalization"],
+      "test_coverage": "not_scanned",
+      "api_endpoints": ["auth", "agent", "file"],
+      "ui_components": 89,
+      "pages": 5,
+      "composables": 12
+    },
+    "backend": {
+      "path": "backend",
+      "type": "python-fastapi",
+      "entry": "backend/app/main.py",
+      "package_manager": "pip",
+      "framework": "FastAPI + Beanie + MongoDB",
+      "architecture": "Domain-Driven Design",
+      "layers": ["application", "domain", "infrastructure", "interfaces"],
+      "key_services": ["agent_service", "auth_service", "file_service", "token_service"],
+      "external_integrations": ["OpenAI LLM", "Docker", "Redis", "MongoDB", "Playwright"],
+      "api_routes": ["sessions", "auth", "files"],
+      "domain_models": ["agent", "session", "user", "plan", "message"],
+      "tools": ["search", "browser", "shell", "file", "mcp"]
+    },
+    "sandbox": {
+      "path": "sandbox",
+      "type": "python-fastapi",
+      "entry": "sandbox/app/main.py",
+      "framework": "FastAPI",
+      "purpose": "Isolated execution environment",
+      "features": ["VNC server", "Shell access", "File operations", "Browser automation"],
+      "ports": [8080, 5900]
+    },
+    "mockserver": {
+      "path": "mockserver",
+      "type": "python",
+      "entry": "mockserver/main.py",
+      "purpose": "Development mock server",
+      "features": ["LLM response mocking", "Configurable delays"]
+    }
+  },
+  "scan_statistics": {
+    "total_files_scanned": 284,
+    "python_files": 120,
+    "typescript_files": 43,
+    "vue_files": 62,
+    "configuration_files": 15,
+    "documentation_files": 22,
+    "other_files": 22,
+    "coverage_percentage": 85,
+    "ignored_patterns": [
+      "node_modules/**",
+      "__pycache__/**",
+      ".git/**",
+      "*.log",
+      "dist/**",
+      "build/**"
+    ],
+    "large_files_skipped": 0,
+    "truncated": false
+  },
+  "architecture_summary": {
+    "pattern": "Microservices with Docker containerization",
+    "communication": ["REST API", "WebSocket", "SSE", "VNC over WebSocket"],
+    "data_storage": ["MongoDB", "Redis", "GridFS"],
+    "ai_integration": "OpenAI-compatible LLM with Function Calling",
+    "sandbox_pattern": "Docker-based isolated execution environments",
+    "real_time_features": ["SSE streaming", "WebSocket VNC", "Live file viewing"]
+  },
+  "gaps_identified": {
+    "frontend": ["Unit tests not found", "E2E tests not found"],
+    "backend": ["Integration tests not found", "API documentation not auto-generated"],
+    "sandbox": ["Test coverage unknown", "Security hardening documentation not found"],
+    "devops": ["CI/CD pipeline not found", "Monitoring setup not found"]
+  },
+  "next_scan_priorities": [
+    "backend/app/domain/services/flows/",
+    "frontend/src/components/toolViews/",
+    "sandbox/app/api/",
+    "backend/tests/",
+    "frontend/tests/"
+  ],
+  "documentation_quality": {
+    "readme_files": 4,
+    "architecture_docs": 2,
+    "api_docs": "external_docs_only",
+    "inline_documentation": "moderate"
+  }
+}
