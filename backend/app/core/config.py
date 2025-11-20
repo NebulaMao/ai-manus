@@ -35,6 +35,11 @@ class Settings(BaseSettings):
     sandbox_https_proxy: str | None = None
     sandbox_http_proxy: str | None = None
     sandbox_no_proxy: str | None = None
+
+    # AIO Sandbox configuration
+    aio_sandbox_enabled: bool = True  # Enable AIO Sandbox as alternative
+    aio_sandbox_image: str = "ghcr.io/agent-infra/sandbox:latest"
+    aio_sandbox_name_prefix: str = "aio-sandbox"
     
     # Search engine configuration
     search_provider: str | None = "bing"  # "baidu", "google", "bing"

@@ -23,6 +23,7 @@ from app.infrastructure.external.llm.openai_llm import OpenAILLM
 from app.infrastructure.external.sandbox.docker_sandbox import DockerSandbox
 from app.infrastructure.external.task.redis_task import RedisStreamTask
 from app.infrastructure.utils.llm_json_parser import LLMJsonParser
+from app.application.services.sandbox_selection_service import get_default_sandbox_class
 from app.infrastructure.repositories.mongo_agent_repository import MongoAgentRepository
 from app.infrastructure.repositories.mongo_session_repository import MongoSessionRepository
 from app.infrastructure.repositories.file_mcp_repository import FileMCPRepository
@@ -49,7 +50,7 @@ def get_agent_service() -> AgentService:
     llm = OpenAILLM()
     agent_repository = MongoAgentRepository()
     session_repository = MongoSessionRepository()
-    sandbox_cls = DockerSandbox
+    sandbox_cls = get_default_sandbox_class()
     task_cls = RedisStreamTask
     json_parser = LLMJsonParser()
     file_storage = get_file_storage()
